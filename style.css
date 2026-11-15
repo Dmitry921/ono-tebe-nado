@@ -1,4 +1,3 @@
-/* Сброс стилей */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,30 +6,24 @@
 
 body {
     font-family: 'Raleway', sans-serif;
-    background-color: #f0f0f0; /* Серый фон за пределами контейнера (для наглядности) */
+    background-color: #f0f0f0;
     display: flex;
-    justify-content: center;
-    padding: 40px 0;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Общая обертка страницы */
 .page-wrapper {
     width: 1100px;
-    /* Убираем фиксированную высоту, пусть блоки сами задают её */
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
-/* =========================================
-   1. ШАПКА (Header) - 1100x293
-   ========================================= */
 .header {
     position: relative;
     width: 1100px;
     height: 293px;
-    background-color: #ffffff; /* Белая шапка */
+    background-color: #ffffff;
 }
 
-/* Меню навигации (координаты внутри шапки) */
 .header-nav {
     position: absolute;
     top: 133px;
@@ -44,7 +37,7 @@ body {
 .nav-link {
     font-weight: 400;
     font-size: 18px;
-    color: #000000; /* Черный текст на белом фоне */
+    color: #000000;
     text-decoration: none;
     white-space: nowrap;
 }
@@ -56,17 +49,17 @@ body {
 .separator {
     width: 6px;
     height: 6px;
-    border: 0.5px solid #000000; /* Черная рамка */
+    border: 0.5px solid #000000;
     border-radius: 50%;
     display: block;
     flex-shrink: 0;
 }
 
-/* Логотип */
-.header-logo {
+.header-logo-link {
     position: absolute;
     top: 92px;
     left: 478px;
+    display: block;
     width: 148px;
     height: 105px;
 }
@@ -78,7 +71,6 @@ body {
     object-fit: contain;
 }
 
-/* Контакты */
 .header-contacts {
     position: absolute;
     top: 95px;
@@ -92,7 +84,7 @@ body {
 .header-contacts a {
     font-weight: 400;
     font-size: 16px;
-    color: #000000; /* Черный текст на белом фоне */
+    color: #000000;
     text-decoration: underline;
     text-underline-offset: 2px;
 }
@@ -104,258 +96,122 @@ body {
     margin-top: 5px;
 }
 
-/* =========================================
-   2. ТЕЛО СТРАНИЦЫ (Hero Body) - 1100x757
-   ========================================= */
-/* =========================================
-   2. ТЕЛО СТРАНИЦЫ (Hero Body) - 1100x757
-   ========================================= */
-/* =========================================
-   2. ТЕЛО СТРАНИЦЫ (Hero Body) - 1100x757
-   ========================================= */
 .hero-body {
     position: relative;
     width: 1100px;
     height: 757px;
-
-    /* ФОН */
-    background-image: url('https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=2070&auto=format&fit=crop');
+    background-image: url('lotus-flower.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    /* Затемнение */
-    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.3);
-
-    /* Внутренние отступы, чтобы текст не прилипал к краям */
-    padding: 80px 50px 40px 50px;
-
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); 
+    padding: 80px 50px 40px 50px; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Распределяет заголовок наверх, кнопку вниз */
+    justify-content: space-between;
 }
 
-/* --- Заголовок (ОНО ТЕБЕ НАДО) --- */
 .hero-title {
     display: flex;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
 }
 
 .word {
-    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 115px;
-    line-height: 1.1; /* Немного увеличил межстрочный интервал, чтобы буквы не слипались */
+    line-height: 1.1;
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
-/* Сдвиги слов (значения из ваших координат left) */
-.word-1 {
-    margin-left: 0;
-}
-
-.word-2 {
-    margin-left: 330px; /* 380 - 50 */
-}
-
-.word-3 {
-    margin-left: 613px; /* 663 - 50 */
-}
-
-/* --- Нижняя панель --- */
-.hero-bottom-panel {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end; /* Прижимаем к низу */
-    width: 100%;
-}
+.word-1 { margin-left: 0; }
+.word-2 { margin-left: 330px; }
+.word-3 { margin-left: 613px; }
 
 .hero-subtitle {
-    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 22px;
     line-height: 28px;
     text-transform: uppercase;
     color: #ffffff;
-
-    /* Жесткая ширина из Figma */
     width: 637px;
     height: 28px;
-
-    /* Распределяем слова равномерно */
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     margin: 0;
     padding: 0;
     white-space: nowrap;
 }
 
-/* Убираем лишние отступы у вложенных span */
 .hero-subtitle span {
     display: inline-block;
 }
 
-/* --- Кнопка --- */
 .hero-btn {
-/* Позиционируем абсолютно внутри блока с картинкой */
     position: absolute;
-
-    /* Прижимаем к правому нижнему углу (отступы подобраны по макету) */
-    bottom: 40px;
-    right: 50px;
-
-    /* Точные размеры из Figma */
+    
+    /* Прижимаем к правому нижнему углу, как на макете */
+    bottom: 40px;  /* Отступ от нижнего края */
+    right: 50px;   /* Отступ от правого края */
+    
+    /* Остальные стили без изменений */
     width: 256px;
     height: 51px;
-
-    /* Выравнивание текста по центру */
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* Оформление */
     border: 1px solid #ffffff;
     background-color: transparent;
     color: #ffffff;
     text-decoration: none;
-    font-family: 'Raleway', sans-serif;
     font-size: 16px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     transition: all 0.3s ease;
     white-space: nowrap;
+    z-index: 10; /* На всякий случай поверх текста */
 }
+
 
 .hero-btn:hover {
     background-color: #ffffff;
     color: #000000;
 }
 
-/* =========================================
-   АДАПТИВНОСТЬ (Для мобильных)
-   ========================================= */
-@media (max-width: 1150px) {
-    .page-wrapper, .header, .hero-body {
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    body { padding: 0; }
-
-    /* Перестраиваем шапку для мобильных */
-    .header {
-        height: auto;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .header-nav, .header-logo, .header-contacts {
-        position: static;
-        width: 100%;
-        text-align: center;
-    }
-
-    .header-nav {
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .separator { display: none; }
-
-    .header-contacts {
-        align-items: center;
-    }
-
-    /* Тело страницы на мобильных */
-    .hero-body {
-        height: auto;
-        padding: 40px 20px;
-    }
-
-    .hero-title {
-        font-size: 40px;
-    }
-
-    .line-2 { margin-left: 10%; }
-    .line-3 { margin-left: 20%; }
-
-    .hero-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-        margin-top: 40px;
-    }
-
-    .hero-subtitle {
-        max-width: 100%;
-    }
-}
-/* =========================================
-   3. БЛОК ЛОТОВ
-   ========================================= */
 .lots {
     width: 1100px;
     background-color: #ffffff;
-    padding: 60px 40px 80px 40px; /* Отступы контейнера: сверху/снизу 60, слева/справа 40 */
+    padding: 60px 40px 80px 40px;
 }
 
-/* Заголовок "ЛОТЫ" */
 .lots-title {
-    font-family: 'Raleway', sans-serif;
     font-weight: 700;
     font-size: 40px;
     line-height: 100%;
-    letter-spacing: 0%;
     text-transform: uppercase;
     color: #000000;
-
     width: 121px;
     height: 47px;
-    margin-bottom: 48px; /* Отступ до карточек */
+    margin-bottom: 27px;
 }
 
-/* Сетка карточек */
 .lots-grid {
     display: flex;
-    justify-content: space-between; /* Распределяем карточки по всей ширине */
+    gap: 9px;
     margin-bottom: 60px;
 }
 
-/* Сама карточка */
 .lot-card {
     position: relative;
-    width: 334px;  /* Точная ширина из Figma */
-    height: 596px; /* Точная высота из Figma */
-
-    /* Временный фон (замените на свои картинки) */
+    width: 334px;
+    height: 596px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* Контент внутри карточки */
-.lot-content {
-    position: relative;
-    z-index: 2;
-    padding: 48px 40px 40px 40px; /* Внутренние отступы из Figma (top:48, left:40) */
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    color: #ffffff;
-}
-
-/* Затемнение фона */
 .lot-card::after {
     content: '';
     position: absolute;
@@ -367,80 +223,50 @@ body {
     z-index: 1;
 }
 
-/* Контент внутри карточки */
 .lot-content {
     position: relative;
     z-index: 2;
-    padding: 48px 40px 40px 40px; /* Отступы из Figma: top:48, left:40 */
+    padding: 48px 40px 40px 40px;
     height: 100%;
     display: flex;
     flex-direction: column;
     color: #ffffff;
 }
 
-/* Заголовок карточки */
 .lot-card-title {
-    font-family: 'Raleway', sans-serif;
     font-weight: 700;
     font-size: 22px;
     line-height: 120%;
-    letter-spacing: 0%;
     text-transform: uppercase;
     text-decoration: underline;
-    text-underline-offset: 4px; /* Небольшой отступ подчеркивания для красоты */
+    text-underline-offset: 4px;
     margin-bottom: 20px;
 }
 
-/* Описание карточки (прижимаем к низу) */
 .lot-card-desc {
-    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 120%;
-    letter-spacing: 0%;
-    margin-top: auto; /* Прижимает текст к нижней части карточки */
+    margin-top: auto;
 }
 
-/* Индивидуальные фоны для карточек (замените ссылки) */
-.lot-card:nth-child(1) {
-    background-image: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop');
-}
+.lot-card:nth-child(1) { background-image: url('photo.png'); }
+.lot-card:nth-child(2) { background-image: url('photo2.jpg'); }
+.lot-card:nth-child(3) { background-image: url('photo 3.png'); }
 
-.lot-card:nth-child(2) {
-    background-image: url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1974&auto=format&fit=crop');
-}
-
-.lot-card:nth-child(3) {
-    background-image: url('https://images.unsplash.com/photo-1541961017774-22349e4a1262?q=80&w=1958&auto=format&fit=crop');
-}
-
-/* Ссылка "посмотреть больше" */
 .lots-more {
     display: inline-block;
-
-    /* Отступ от карточек (подберите, чтобы попасть в top: 700px) */
-    margin-top: 30px;
-
-    /* Точный шрифт из Figma */
-    font-family: 'Raleway', sans-serif;
+    margin-top: 30px; 
     font-weight: 400;
-    font-style: normal;
     font-size: 20px;
     line-height: 100%;
-    letter-spacing: 0%;
-    text-transform: lowercase; /* На макете с маленькой буквы */
-
+    text-transform: lowercase;
     color: #000000;
-
-    /* Подчеркивание */
     text-decoration: underline;
-    text-underline-offset: 4px;
-
-    /* Убираем лишнее */
+    text-underline-offset: 4px; 
     border: none;
     padding: 0;
     background: transparent;
-
     transition: opacity 0.3s ease;
 }
 
@@ -448,38 +274,6 @@ body {
     opacity: 0.7;
 }
 
-/* =========================================
-   АДАПТИВНОСТЬ ДЛЯ БЛОКА ЛОТОВ
-   ========================================= */
-@media (max-width: 1150px) {
-    .lots {
-        width: 100%;
-    }
-}
-
-@media (max-width: 992px) {
-    .lots-grid {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .lots-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    .lots-title {
-        font-size: 32px;
-    }
-}
-
-/* =========================================
-   4. БЛОК ОБ АУКЦИОНЕ
-   ========================================= */
-/* Родительский контейнер должен иметь position: relative, 
-   чтобы координаты top/left круга отсчитывались от него */
 .about {
     width: 1052px;
     height: 595px;
@@ -487,147 +281,115 @@ body {
     margin-top: 40px;
     margin-bottom: 40px;
     background-color: #ffffff;
-    position: relative; /* ОБЯЗАТЕЛЬНО */
+    position: relative;
 }
 
-/* Внутренний контейнер для выравнивания круга и текста */
 .about-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
     width: 100%;
     height: 100%;
     position: relative;
 }
 
-/* --- Левая часть: Черный круг --- */
 .about-logo-wrapper {
-    position: absolute; /* Позволяет задать точные координаты */
-
-    /* Данные из Figma */
-    width: 240px;
-    height: 240px;
+    position: absolute;
     top: 35px;
     left: 47px;
-
+    width: 240px;
+    height: 240px;
     background-color: #000000;
-    border-radius: 50%; /* Делает из квадрата круг */
-
-    /* Центрируем картинку внутри круга */
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .about-logo-img {
-    width: 140px; /* Размер логотипа внутри, подберите по вкусу */
+    width: 140px;
     height: auto;
 }
 
-/* --- Правая часть: Текст --- */
 .about-content {
     position: absolute;
-    /* Текст начинается правее круга (47 + 240 + отступ) */
-    top: 3px; /* Заголовок начинается почти с самого верха */
-    left: 350px; /* Подберите отступ, чтобы текст не налезал на круг */
-
-    width: 693px; /* Ширина текста из Figma */
+    top: 3px;
+    left: 350px;
+    width: 693px;
     display: flex;
     flex-direction: column;
 }
 
 .about-title {
-    font-family: 'Raleway', sans-serif;
     font-weight: 700;
     font-size: 40px;
     line-height: 100%;
-    letter-spacing: 0%;
     text-transform: uppercase;
     color: #000000;
-
-    /* Отступ от заголовка до текста */
-    margin-bottom: 30px;
+    margin-bottom: 30px; 
 }
 
 .about-text {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Расстояние между абзацами */
-
-    /* Текст начинается на top: 150px от верха блока. 
-       Заголовок занимает 47px + margin-bottom 30px = 77px. 
-       Добавим отступ, чтобы выйти на 150px от верха контейнера */
-    margin-top: 70px;
+    gap: 20px;
+    margin-top: 70px; 
 }
 
 .about-text p {
-    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 20px;
-    line-height: 24px; /* Точное значение из Figma */
-    letter-spacing: 0%;
+    line-height: 24px;
     color: #000000;
 }
-/* =========================================
-   5. ПОДВАЛ САЙТА (Footer)
-   ========================================= */
+
 .footer {
     width: 1100px;
     background-color: #ffffff;
-    padding: 40px 0 80px 0;
-    border-top: 1px solid #eee;
+    padding: 40px 0 80px 0; 
+    border-top: 1px solid #eee; 
 }
 
 .footer-container {
-    position: relative; /* База для абсолютного позиционирования колонок */
+    position: relative;
     width: 100%;
-    height: 100px; /* Высота подвала, чтобы колонки не схлопывались */
+    height: 100px;
 }
 
-/* --- Левая колонка: Контакты --- */
 .footer-contacts-col {
     position: absolute;
     top: 0;
-    left: 50px; /* Точное значение из Figma */
-    width: 264.57px; /* Точная ширина из Figma */
-
+    left: 50px;
+    width: 264.57px;
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.footer-contacts-col a,
+.footer-contacts-col a, 
 .footer-address {
-    font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    font-size: 18px; /* Из Figma */
-    line-height: 24.3px; /* Из Figma */
-    letter-spacing: 0%;
+    font-size: 18px;
+    line-height: 24.3px;
     color: #000000;
     text-decoration: underline;
     text-underline-offset: 2px;
 }
 
 .footer-address {
-    text-decoration: none; /* Адрес без подчеркивания */
+    text-decoration: none;
     margin-top: 2px;
 }
 
-/* --- Центральная колонка: Меню --- */
 .footer-nav-col {
     position: absolute;
-    top: 1px; /* Из Figma */
-    left: 468.6px; /* Точное значение из Figma */
-    width: 163.9px; /* Точная ширина из Figma */
-
+    top: 1px;
+    left: 468.6px;
+    width: 163.9px;
     display: flex;
     flex-direction: column;
     gap: 4px;
-    text-align: center; /* Текст по центру блока */
+    text-align: center;
 }
 
 .footer-nav-col a {
-    font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 24.3px;
@@ -641,37 +403,31 @@ body {
     text-decoration: none;
 }
 
-/* --- Правая колонка: Соцсети --- */
 .footer-social-col {
     position: absolute;
-    top: 1px; /* Из Figma */
-    left: 810px; /* Точное значение из Figma */
-    width: 240px; /* Точная ширина из Figma */
-
+    top: 1px;
+    left: 810px;
+    width: 240px;
     display: flex;
-    gap: 48px; /* Точное расстояние между иконками из Figma */
+    gap: 48px;
 }
 
-/* Стиль круглых иконок */
 .social-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* Точный размер иконки из Figma */
     width: 48px;
     height: 48px;
-
     border: 1px solid #000000;
-    border-radius: 50%;
+    border-radius: 50%; 
     color: #000000;
     text-decoration: none;
     transition: all 0.3s ease;
-    flex-shrink: 0; /* Запрещаем сжимать иконки */
+    flex-shrink: 0;
 }
 
 .social-icon svg {
-    width: 24px; /* Размер самой иконки внутри круга */
+    width: 24px;
     height: 24px;
 }
 
@@ -680,17 +436,118 @@ body {
     color: #ffffff;
 }
 
-/* =========================================
-   АДАПТИВНОСТЬ ДЛЯ ПОДВАЛА
-   ========================================= */
 @media (max-width: 1150px) {
-    .footer {
+    .header, .page-wrapper, .footer {
         width: 100%;
-        padding: 40px 20px;
+    }
+    .about {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .lots-grid {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 
 @media (max-width: 768px) {
+    .header {
+        height: auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .header-nav, .header-logo-link, .header-contacts {
+        position: static;
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-nav {
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .separator { display: none; }
+
+    .header-contacts {
+        align-items: center;
+    }
+
+    .hero-body {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .word {
+        font-size: 40px;
+    }
+    
+    .word-1 { margin-left: 0; }
+    .word-2 { margin-left: 10%; }
+    .word-3 { margin-left: 20%; }
+
+    .hero-subtitle {
+        width: 100%;
+        height: auto;
+        white-space: normal;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .hero-btn {
+        position: static;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .lots {
+        padding: 40px 20px;
+    }
+
+    .lots-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lot-card {
+        width: 100%;
+    }
+
+    .about {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-logo-wrapper {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .about-content {
+        position: static;
+        width: 100%;
+        text-align: center;
+    }
+
+    .about-text {
+        margin-top: 20px;
+    }
+
     .footer-container {
         height: auto;
         display: flex;
@@ -699,7 +556,6 @@ body {
         gap: 30px;
     }
 
-    /* Отключаем абсолютное позиционирование на мобильных */
     .footer-contacts-col,
     .footer-nav-col,
     .footer-social-col {
